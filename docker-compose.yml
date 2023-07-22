@@ -1,0 +1,23 @@
+#
+# https://www.linuxserver.io/blog/2020-08-26-setting-up-authelia
+# https://www.linuxserver.io/blog/zero-trust-hosting-and-reverse-proxy-via-cloudflare-swag-and-authelia
+#
+---
+version: '3.7'
+services:
+  authelia:
+    image: ghcr.io/authelia/authelia:4.37.5
+    container_name: authelia
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    user: ${PUID}:${PGID}
+    volumes:
+      - ${LOCVOL1}/${APPVOLDIR}:/config
+    restart: unless-stopped
+#
+networks:
+  default:
+    name: ${CONNET}
+    external: true
