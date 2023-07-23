@@ -16,7 +16,7 @@ theme: dark
 
 ## The secret used to generate JWT tokens when validating user identity by email confirmation. JWT Secret can also be
 ## set using a secret: https://www.authelia.com/c/secrets
-jwt_secret: put_some_secret_here
+jwt_secret: very_long_secret_goes_here
 
 ## Default redirection URL
 ##
@@ -529,12 +529,12 @@ access_control:
     - '192.168.0.0/18'
 
   rules:
-    - domain: '*'
+    - domain: '*.finchtech.xyz'
       networks:
         - trusted
       policy: bypass
 
-    - domain: '*'
+    - domain: '*.finchtech.xyz'
       policy: one_factor
 
     ## Rules applied to everyone
@@ -630,7 +630,7 @@ session:
 
   ## The secret to encrypt the session data. This is only used with Redis / Redis Sentinel.
   ## Secret can also be set using a secret: https://www.authelia.com/c/secrets
-  secret: put_some_secret_here
+  secret: very_long_secret_goes_here
 
   ## The value for expiration, inactivity, and remember_me_duration are in seconds or the duration notation format.
   ## See: https://www.authelia.com/c/common#duration-notation-format
@@ -773,7 +773,7 @@ storage:
   ## The encryption key that is used to encrypt sensitive information in the database. Must be a string with a minimum
   ## length of 20. Please see the docs if you configure this with an undesirable key and need to change it, you MUST use
   ## the CLI to change this in the database if you want to change it from a previously configured value.
-  encryption_key: put_some_secret_here
+  encryption_key: very_long_secret_goes_here
 
   ##
   ## Local (Storage Provider)
