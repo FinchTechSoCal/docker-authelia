@@ -1,0 +1,22 @@
+---
+###############################################################
+#                         Users Database                      #
+###############################################################
+
+# This file can be used if you do not have an LDAP set up.
+
+# Generate password using:
+# docker run --rm ghcr.io/authelia/authelia:4.37.5 authelia hash-password <PASSWORD>
+
+# List of users
+users:
+  username:
+    disabled: false
+    displayname: "username"
+    # default password is authelia
+    password: "$argon2id$v=19$m=65536,t=3,p=4$gUxJKoIAHYWPpVq1Hf2Z3Q$RQS0t4ywH3HSmfYSIckAUiS+8OXjmkhp/+ctI5iZcOA" 
+    email: user@exampke.com
+    groups:
+      - admins
+      - dev
+...
